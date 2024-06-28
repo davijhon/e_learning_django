@@ -34,8 +34,3 @@ You can find a similar project on Django by Example 2 page 600.
 - Check queries performance.
 - Profile system improvments.
 
-
-[Harsh Vijay ](https://github.com/iharsh234) |[Quandl](https://www.quandl.com)
-
-MIT © [Harsh Vijay ](https://github.com/iharsh234)
-
