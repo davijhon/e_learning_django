@@ -1,0 +1,26 @@
+{% extends 'account/profiles/dashboard/dashboard_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Edit "{{ course.title }}"
+{% endblock title %}
+
+
+{% block dashboard %}
+    <h1>Edit "{{ course.title }}"</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 edit-course">
+                <div class="module">
+                    <h2>Course modules</h2>
+                    <form action="" method="post">
+                        {{ formset|crispy }}
+                        {{ formset.management_form|crispy }}
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="Save modules">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock dashboard %}

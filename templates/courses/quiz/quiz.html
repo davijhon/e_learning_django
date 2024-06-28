@@ -1,0 +1,55 @@
+{#% extends 'account/profiles/dashboard/students/student_in_course_content_base.html' %#}
+{#% load static %#}
+
+
+{#% block in_course_content %#}
+<!-- <div class="data-dashboard">
+    <div class="container"> -->
+        <div class="card">
+            <div class="card-header">
+              Quiz: {{ item.question_text }}
+            </div>
+            <div class="card-body">         
+                <h1>{{ question.question_text }}</h1>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        {% for choice in item.choice_set.all %}
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choices_text }}</label>
+                            <br>
+                        {% endfor %}
+                        <input type="submit" class="btn btn-primary" value="Enviar">
+                    </form>
+              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+              <!-- <a href="#" class="btn btn-primary" id="submitAnswer">Go somewhere</a> -->
+            </div>
+          </div>
+	<!-- </div>
+</div> -->
+{#% endblock in_course_content %#}
+{#% block extra_javascript %#}
+<!-- <script>
+
+</script>
+
+<script>
+    window.onload = initiall;
+    var saveAnsButton;
+
+    function initiall(){
+        saveAnsButton = document.getElementById('submitAnswer')
+        saveAnsButton.onclick = saveans
+    }
+    function saveans(){
+        var ans = $("input:radio[name=name]:checked").val()
+        // alert("answer is submited click text")
+
+        var req = new XMLHttpRequest();
+
+        var url = '/result?ans='+ans
+        req.open("GET", url, true)
+        req.send()
+    }
+</script> -->
+
+{#% endblock extra_javascript %#}

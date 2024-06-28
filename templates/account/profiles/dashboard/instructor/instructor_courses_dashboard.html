@@ -1,0 +1,95 @@
+{% extends 'account/profiles/dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block dashboard %}
+    <div class="data-dashboard">
+        <h2>My Courses</h2>
+
+        <div class="col-md-12">
+            <a href="{# % url 'courses:course_create' % #}"><button type="button" class="btn btn-success">Create new Course</button></a>
+        </div>
+
+        <div class="album">
+            <div class="container">
+                    <div class="row">
+                        {% for course in object_list %} 
+                         <!--div class="intructor-course-course"-->
+                          <div class="col-md-6 course-col">
+                            <a href="#">
+                              <img class="intructor-course-img rounded mb-3 mb-md-0" src="{{ course.image.url }}" alt="">
+                            </a>
+                          </div>
+                          <div class="col-md-5 introcutor-course-content">
+                            <h3>{{ course.title }}</h3>
+                            <p>{{ course.overview|truncatewords:35 }}</p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'courses:course_edit' course.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit Course</button></a>
+                                </div>
+                                <div class="btn-group">   
+                                    <a href="{% url 'courses:course_module_update' course.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit Modules</button></a>
+                                </div>
+                                {% if course.modules.count > 0 %}    
+                                    <div class="btn-group">
+                                        <a href="{% url 'courses:module_content_list' course.modules.first.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">Manage Content</button></a>
+                                    </div>
+                                {% endif %}    
+                                    <div class="btn-group">
+                                        <a href="{% url 'courses:course_delete' course.id %}"><button type="button" class="btn btn-sm btn-outline-secondary">Delete</button></a>
+                                    </div>
+                                                    <!-- <small class="text-muted">9 mins</small> -->
+                              </div>
+                              <hr>
+                          </div>
+                          
+                        <!--/div-->
+                        {% empty %}
+                            <p>You haven't created any courses yet.</p>
+                        {% endfor %}
+
+                    </div><!-- /.row -->
+                    
+                    
+            </div>
+        </div>
+    </div>
+
+{% endblock dashboard %}
+
+
+
+                <!--div class="row">
+                    {#% for course in object_list %#}
+                        <div class="col-md-8">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" src="{#{ course.image.url }#}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><img width="100%" height="100%" img="#340853"/><!--text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text</svg>
+                                <div class="card-body">
+                                <h3>{#{ course.title }#}</h3>
+                                <p class="card-text">{#{ course.overview }#}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{#% url 'courses:course_edit' course.id %#}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit Course</button></a>
+                                    </div>
+                                    <div class="btn-group">   
+                                        <a href="{#% url 'courses:course_module_update' course.id %#}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit Modules</button></a>
+                                    </div>
+                                    {#% if course.modules.count > 0 %#}    
+                                        <div class="btn-group">
+                                            <a href="{#% url 'courses:module_content_list' course.modules.first.id %#}"><button type="button" class="btn btn-sm btn-outline-secondary">Manage Content</button></a>
+                                        </div>
+                                    {#% endif %#}    
+                                    <div class="btn-group">
+                                        <a href="{#% url 'courses:course_delete' course.id %#}"><button type="button" class="btn btn-sm btn-outline-secondary">Delete</button></a>
+                                    </div>
+                                    < <small class="text-muted">9 mins</small> 
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    {#% empty %#}
+                        <p>You haven't created any courses yet.</p>
+                    {#% endfor %#}
+                </div>
+            </div>
+        </div>
+    </div-->

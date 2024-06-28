@@ -1,0 +1,620 @@
+/*Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+}
+
+header,
+section {
+    overflow-x: hidden;
+}
+
+:root {
+    --bggradient: linear-gradient(to bottom, #088ee7, #0502c2);
+    --light-gray: rgba(255,255,255,0.1);
+}
+/* .navbar.black {
+    background: rgba(0, 0, 0, .8);
+    height: 80px;
+    padding: 10px 50px;
+} */
+.container {
+    margin: 6rem;
+    /* min-height: 100vh;
+    width: 100%;
+    display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+.section-title {
+    margin: 3.5rem;
+    color: #0062cc;
+    letter-spacing: 1px;
+}
+
+header {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.9rem;
+    color: whitesmoke;
+}
+
+
+header{
+    /* background: #dd2476; */
+    background: var(--bggradient);
+}
+header .navbar {
+  background-color: #0062cc;
+}
+
+header .nav-item:last-child {
+    padding-right: 10.5em;
+}
+
+header .nav-item {
+    padding: 0.9em;
+}
+
+header .navbar-brand {
+    padding-left: 8rem;
+    color: white;
+}
+
+header .nav-link {
+    color: white;
+}
+
+
+header .nav-link:hover {
+    color: rgb(255, 0, 0);
+}
+
+header .row .col-md-5 {
+    padding: 4.2vmin 1vmin;
+}
+header .row .col-md-7 {
+    padding: 22vmin 1vmin;
+    padding-bottom: 35vmin;
+    color: white;
+}
+
+header .row .col-md-5 img {
+    width: 90%;
+}
+
+header .container .col-md-7 h6 {
+    padding: 1vmin;
+    letter-spacing: 4px;
+}
+
+header .container .col-md-7 h1 {
+    font-size: 8.5vmin;
+    font-weight: bold;
+    padding: 0.1em 0em;
+}
+header .container .col-md-7 p {
+    padding: 1vmin 5vmin;
+}
+
+header .container .col-md-7 button {
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 0.1em 0em;
+}
+.fa-user-circle {
+    color: white;
+}
+
+/* Carousel */
+.owl-prev {
+    left: -30px;
+}
+.owl-next {
+    right: -30px;
+}
+.owl-prev, .owl-next {
+    position: absolute;
+    top: 30%;
+}
+.owl-prev span, .owl-next span {
+    font-size: 60px;
+    color: #787878;
+}
+.owl-theme .owl-nav [class="owl-"]:hover{
+    background-color: transparent;
+}
+
+.card {
+    height: 480px !important;
+}
+/* Description Section */
+.about .content h2 {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    color: #0062cc;
+  }
+  
+  .about .content h3 {
+    font-weight: 500;
+    line-height: 32px;
+    font-size: 24px;
+  }
+  
+  .about .content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about .content ul li {
+    padding: 10px 0 0 28px;
+    position: relative;
+  }
+  
+  .about .content ul i {
+    left: 0;
+    top: 7px;
+    position: absolute;
+    font-size: 20px;
+    color: #5a5af3;
+  }
+  
+  .about .content p:last-child {
+    margin-bottom: 0;
+  }
+  /* End Description Section */
+
+
+/* About Section */
+#about {
+  margin-top: 3.5rem;
+}
+.about-img img{
+ width: 540px;
+ height: 360px;
+ border-radius: 0.25rem!important; 
+}
+.about-history {
+  display: flex;
+  margin-bottom: 3rem;
+}
+.about-description {
+  /* padding: 2rem; */
+  margin-left: 6rem;
+  text-align: justify;
+  width: 40%;
+}
+.about-description h2{
+  text-align: center;
+}
+.about-division {
+  width: 100%;
+}
+.about-team {
+  display: flex;
+}
+.about-team-header {
+  margin-bottom: 3rem;
+  margin-top: 3.5rem;
+}
+.about-person {
+  text-align: center !important;
+}
+.about-person img{
+  width: 120px;
+  border-radius: 50%;
+}
+.about-person p:nth-child(2){
+  text-transform: uppercase;
+  color: #8c92a0;
+}
+.about-person-description p:nth-child(1){
+  line-height: 1.7;
+  color: #8c92a0;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+
+/* End About Section */
+
+
+
+
+  /* Section Subject */
+  #portfolio .portfolio-item {
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #portfolio .portfolio-item .portfolio-link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+  }
+  #portfolio .portfolio-item .portfolio-link .portfolio-hover {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 85, 164, 0.7);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity ease-in-out 0.25s;
+  }
+  #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content p{
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  #portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
+    opacity: 1;
+  }
+  #portfolio .portfolio-item .portfolio-caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+  }
+  #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
+    font-size: 1.5rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  #portfolio .portfolio-item .portfolio-caption .portfolio-caption-subheading {
+    font-style: italic;
+    font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  #portfolio .portfolio-item .centered h3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+  }
+  .subjects-img {
+    max-width: 100%;
+    height: 280px;
+  }
+  /* End Section Subject */
+
+  /* Testimonial */  
+  .testimonials .testimonial-item {
+    max-width: 18rem;
+  }
+  
+  .testimonials .testimonial-item img {
+    max-width: 12rem;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
+  }
+
+/*--- Instructor Profile ----*/
+.data-dashboard {
+  margin-top: 120px;
+  margin-left: 280px;
+
+}
+
+#nav-dashboard {
+  background: linear-gradient(to bottom, #088ee7, #0502c2);
+  line-height: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+label {
+  line-height: 80px;
+  font-size: 30px;
+  color: white;
+  font-weight: 200;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+#nav-dashboard ul {
+  float: right;
+  margin-right: 20px;
+}
+
+#nav-dashboard ul li{
+  line-height: 80px;
+  margin: 0 10px;
+}
+
+#nav-dashboard ul li a {
+  color: white;
+  font-size: 20px;
+  padding: 6px 15px;
+  font-weight: 600;
+  /* background-color: rgba(55, 34, 246); */
+  border-radius: 3px;
+}
+
+#nav-dashboard ul li a:hover{
+  background-color: rgba(49, 27, 155);
+  color: white;
+  transition: 0.5s;
+}
+
+.side-menu{
+  position: fixed;
+  background: rgb(26, 29, 39);
+  width: 250px;
+  height: 100%;
+  margin-top: 80px;
+  /* z-index: -1; */
+}
+.side-menu center img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin-top: 30px;
+  border: 3px solid white;
+}
+
+.side-menu center h2{
+  color: white;
+}
+
+.side-menu a{
+  display: block;
+  line-height: 60px;
+  transition: 0.5s;
+}
+
+.side-menu a:hover{
+  background: rgba(20, 54, 164);
+  padding-left: 20px;
+}
+
+.side-menu span{
+  font-size: 20px;
+  margin-left: 19px;
+  color: white;
+}
+.side-menu i{
+  font-size: 20px;
+  margin-left: 20px;
+  color: white;
+}
+
+#nav-dashboard .menu-bar {
+  float: right;
+  margin-top: 20px;
+  display: none;
+  margin-right: 20px;
+}
+
+#menu {
+  display: none;
+}
+
+.side-menu .Logout {
+  display: none;
+}
+
+@media (max-width:850px){
+  .side-menu a span{
+    display: none;
+  }
+  .side-menu center {
+    display: none;
+  }
+  .side-menu {
+    width: 100px;
+
+  }
+
+  .side-menu a i{
+    display: block;
+    line-height: 80px;
+    text-align: center;
+    margin-left: 0;
+    font-size: 35px;
+    font-weight: 35px;
+  }
+
+  .data-dashboard{
+    margin-left: 100px;
+  }
+
+
+}
+
+@media (max-width:650px){
+  .data-dashboard{
+    display: none;
+  }
+
+  #nav-dashboard ul {
+    display: none;
+  }
+
+  .side-menu {
+    width: 100%;
+    text-align: center;
+    left: 100%;
+    background: #4c516d;
+    transition: all 0.5s;
+  }
+
+  .side-menu a li{
+    display: none;
+  }
+  .side-menu a span{
+    display: block;
+  }
+  .side-menu .Logout{
+    display: block;
+  }
+  #nav-dashboard .menu-bar{
+    display: block;
+  }
+}
+
+#menu:checked ~ .side-menu{
+  left:0;
+}
+
+.avatar-xl img {
+  width: 110px;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+.text-muted {
+  color: #aeb0b4 !important;
+}
+.text-muted {
+  font-weight: 300;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4d5154;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #eef0f3;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-field{
+  margin-bottom: 2rem;
+}
+.requiredField{
+  height: 65px;
+}
+.content-video {
+  margin: 0 auto; 
+  width: 1200px;
+  /* margin-left: 15rem; */
+}
+.content-video-2 {
+  margin: 0 auto; 
+  width: 700px;
+  /* margin-left: 15rem; */
+}
+
+.course-description {
+  align-items: center;
+}
+
+/*------------- Managment Content --------------*/
+label {
+  line-height: 80px;
+  font-size: 25px;
+  color: black;
+  font-weight: 200;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.asteriskField{
+  display: none;
+}
+.add-content{
+  display: flex;
+}
+.add-content h3{
+  font-size: 1.5rem;
+}
+.content-types{
+  display: inline-flex;
+}
+.content-types li{
+  margin-right: 1rem;
+}
+#module-contents .content-list{
+  display: flex;
+  margin-bottom: 1rem;
+}
+#module-contents p{
+  margin-right: 1.2rem;
+}
+#module-contents a {
+  height: 38px;
+  margin-right: 1rem;
+}
+
+.fa-check {
+  color: rgb(51, 197, 51);
+}
+/*------------- End Managment Content --------------*/
+
+
+/* ------ Managment Course ----------*/
+.intructor-course-img {
+    height: 200px;
+    width: 350px;
+} 
+.introcutor-course-content{
+  margin-bottom: 3rem
+}
+.course-col {
+  text-align: center;
+}
+.shadow-sm img{
+  height: 150px;
+}
+/*---- End Instructor Profile ---- -*/
+
+/* In Courses Accordion */
+#accordion {
+  position: fixed;
+  /* background: rgb(26, 29, 39); */
+  width: 250px;
+  height: 100%;
+  margin-top: 80px;
+  overflow-y: auto;
+}
+
+/* End In Courses Accordion */
+
+/*--- Footer ------*/
+
+footer {
+    background-color: #26272f;
+    color: white;
+    padding-top: 2rem;
+    height: 350%;
+  }
+footer .container {
+    margin-bottom: 0;
+    margin-top: 0; 
+}
+  footer img {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+  hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+  }
+  hr.socket {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+  }
+  .list-unstyled li{
+    margin-bottom: .9rem;
+  }
+/* end footer */
+

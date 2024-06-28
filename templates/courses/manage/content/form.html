@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if object %}
+        Edit content "{{ object.title }}"
+    {% else %}
+        Add a new content
+    {% endif %}
+{% endblock title %}
+
+
+{% block content %}
+    <h1>
+        {% if object %}
+            Edit content "{{ object.title }}"
+        {% else %}
+            Add a new content
+        {% endif %}
+    </h1>
+    <div class="module">
+        <h2>Course info</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <p><input type="submit" class="btn btn-primary" value="Save content"></p>
+        </form>
+    </div>
+{% endblock content %}
+{% block extra_javascript %}
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    </script>
+{% endblock extra_javascript %}

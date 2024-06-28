@@ -1,0 +1,85 @@
+{% extends 'account/profiles/dashboard/dashboard_base.html' %}
+{% load course %}
+
+
+{% block dashboard %}
+    {% with course=module.course %}
+    <div class="data-dashboard">
+        <h1>Course "{{ course.title }}"</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-12 edit-course">
+                    <div class="contents">
+                        <h3>Modules</h3>                       
+                        <p><a class="btn btn-primary" href="{% url 'courses:course_module_update' course.id %}">
+                            Edit modules
+                        </a></p>
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Module</th>
+                                <th scope="col">Description</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for m in course.modules.all %}
+                                <tr data-id="{{ m.id }}" {% if m == module %} class="selected" {% endif %}>
+                                  <th scope="row">{{ m.order|add:1 }}</th>
+                                  <td><a href="{% url 'courses:module_content_list' m.id %}">{{ m.title }}</a> </td>
+                                  <td>{{ m.description }}</td>
+                                </tr>
+                              {% empty %}
+                                <tr>
+                                  <td>No modules yet.</td>
+                                </tr>
+                              {% endfor %} 
+                            </tbody>
+                          </table>
+                          <hr class="under-content-list">          
+                    </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 edit-course">
+                    <div class="module">
+                      <div class="col-6 justify-content-left"> 
+                        <h2>Module {{ module.order|add:1 }}: {{ module.title }}</h2>
+                      </div>
+                      <div class="col-6 add-content justify-content-right">
+                          <h3>Add new contet</h3>
+                        <ul class="content-types">
+                          {% if not module.has_video %}
+                            <li><a class="btn btn-primary"  href="{% url 'courses:module_content_create' module.id 'video' %}">Video</a></li>
+                          {% endif %}
+                          {% if not module.has_quiz %}
+                            <li><a class="btn btn-primary"  href="{% url 'courses:module_content_create' module.id 'question' %}">Quiz</a></li>
+                          {% endif %}
+                        </ul>
+                      </div>
+                        <h3>Module contents:</h3>
+                        <div id="module-contents">
+                          {% for content in module.contents.all %}
+                              <div data-id="{#{ content.id }#}" class="content-list">
+                                {% with item=content.item %}
+                                    <p>{{ item }}</p>
+                                      <a class="btn btn-primary" href="{% url 'courses:module_content_update' module.id item|model_name item.id %}">Edit</a>
+                                    <form action="{% url 'courses:module_content_delete' content.id %}" method="post">
+                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                            {% csrf_token %}
+                                    </form>
+                                {% endwith %}
+                              </div>
+                          {% empty %}
+                              <p>This module has no contents yet.</p>
+                          {% endfor %}
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    {% endwith %}
+
+{% endblock dashboard %}

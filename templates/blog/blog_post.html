@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include 'pages/navbar.html' %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ object.image.url }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ object.title }}</h1>
+            <h2 class="subheading">{{ object.description }}</h2>
+            <span class="meta">Posted by
+              <a href="#">{{ object.author }}</a>
+              on {{ object.publicated_date }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{ object.content|safe }}</p>
+
+
+
+          <p>Placeholder text by
+            <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+
+
+{% endblock content %}

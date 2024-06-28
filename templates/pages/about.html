@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'pages/navbar.html' %}
+    <section id="about">
+        <div class="container">
+            <div class="row about-history">
+                <div class="about-img">
+                    <img src="{% static 'img/hero_1.jpg' %}" alt="">
+                </div>
+                <div class="about-description">
+                    <h2 class="text-black">How We Started</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at laboriosam, nemo 
+                        exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus quos sequi hic 
+                        fugiat asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum quas.</p>
+                    <p>Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est, sunt nulla illum autem in, quibusdam 
+                        cumque recusandae, laudantium minima repellendus.</p>
+                </div>
+            </div>
+            <hr class="about-division">
+
+            <div class="row about-team text-center">
+                <div class="col-12 about-team-header">
+                    <h2>The Team</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 about-person">
+                    <img src="{% static 'img/person_1.jpg' %}" alt="">
+                    <h3>Elizabeth Graham</h3>
+                    <p>CEO/Co-Founder</p>
+                    <div class="about-person-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                            elit. Vitae aut minima nihil sit distinctio 
+                            recusandae doloribus ut fugit officia voluptate soluta. </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 about-person">
+                    <img src="{% static 'img/person_2.jpg' %}" alt="">
+                    <h3>Jennifer Greive</h3>
+                    <p>Co-Founder</p>
+                    <div class="about-person-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                            elit. Vitae aut minima nihil sit distinctio 
+                            recusandae doloribus ut fugit officia voluptate soluta. </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 about-person">
+                    <img src="{% static 'img/person_3.jpg' %}" alt="">
+                    <h3>Patrick Marx</h3>
+                    <p>Marketing</p>
+                    <div class="about-person-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                            elit. Vitae aut minima nihil sit distinctio 
+                            recusandae doloribus ut fugit officia voluptate soluta. </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 about-person">
+                    <img src="{% static 'img/person_4.jpg' %}" alt="">
+                    <h3>Mike Coolbert</h3>
+                    <p>Sales Manager</p>
+                    <div class="about-person-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+                            elit. Vitae aut minima nihil sit distinctio 
+                            recusandae doloribus ut fugit officia voluptate soluta. </p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <!-- Features Section 1 -->
+            <section id="features">
+                <div class="container">
+                    <div class="row text-center padding">
+                        <div class="col-xs-12 col-sm-6 col-md-4 padding">
+                        <i class="fas fa-book-reader fa-3x mx-3"></i>
+                            <h3>Quality</h3>
+                    <p>The automated process all your wbsite task.</p>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 padding">
+                    <i class="fa fa-child fa-3x" aria-hidden="true"></i>
+                            <h3>For Everyone</h3>
+                    <p>Built with the leates version of Django, teris asterum campen mellis eberatun taram</p>
+
+                        </div>
+                        <div class="col-sm-12 col-md-4 padding">
+                    <i class="fa fa-search-plus fa-3x" aria-hidden="true"></i>
+                            <h3>Searching</h3>
+                    <p>Built with the leates version of css3, teris asterum campen mellis eberatun taram</p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Features Section 1 -->
+
+        </div>
+        
+    </section>
+
+    {% include 'pages/footer.html' %}
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'pages/navbar.html' %}
+<section class="category">
+    <div class="container">
+        <div class="row">
+            <h2>Courses about {{ subject.title }}</h2>               
+                {% for course in courses %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a href="#">
+                                        <img class="img-fluid rounded" src="{{ course.image.url }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h2 class="card-title">{{ course.title }}</h2>
+                                    <p class="card-text">{{ course.overview }}</p>
+                                    <a href="{{ course.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Posted on January 1, 2017 by
+                            <a href="#">Start Bootstrap</a>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

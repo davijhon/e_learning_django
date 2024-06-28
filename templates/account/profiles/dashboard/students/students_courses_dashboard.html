@@ -1,0 +1,41 @@
+{% extends 'account/profiles/dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block dashboard %}
+    <div class="data-dashboard">
+        <h2>My Courses</h2>
+
+        <div class="album">
+            <div class="container">
+                <div class="row">
+                    {% for course in courses %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="{{ course.image.url }}">
+                                <!--svg class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg-->
+                                <div class="card-body">
+                                    <a href="{% url 'students:student_course_detail' course.pk %}"><h3>{{ course.title }}</h3></a>
+                                <p class="card-text">{{ course.overview }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                    <a href="{% url 'students:student_course_detail' course.pk %}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                                    </div>
+                                    <small class="text-muted">30 hrs</small>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>
+                            Your are not enrolled in any courses yet.
+                            <a href="{% url 'courses:course_list' %}">Browse courses</a>
+                            to enroll in a course
+                        </p>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock dashboard %}

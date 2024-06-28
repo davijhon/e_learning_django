@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load user_content %}
+
+{% block content %}
+{% include 'pages/navbar.html' %}
+<!-- Acordion Section -->
+<div id="accordion">
+  {% for m in object.modules.all %}
+    <div class="card-accordion">
+      <div class="card-header" id="heading1">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ m.id }}" aria-expanded="true" aria-controls="collapse{{ m.id }}">
+            {{ m.title }}
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapse{{ m.id }}" class="collapse show" aria-labelledby="heading{{ m.id }}" data-parent="#accordion">
+        {% for content in m.contents.all %}
+          <div class="card-body">  
+                <a id="myDIV{{ content.id }}" href="{% url 'students:student_course_detail_module' object.id m.id content.id %}"> {{ content.item }}</a>{{ request.user|user_content_complete:content|safe }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% empty %}
+    <li>No modules yet.</li>
+  {% endfor %}
+
+</div>
+
+ <!-- End Acordion Section -->
+{% block in_course_content %}
+{% endblock in_course_content %}
+
+
+{% endblock content %}
+{% block extra_javascript %}
+<script type="text/javascript">
+  $('.collapse').collapse();
+ </script>
+{% endblock extra_javascript %}

@@ -1,0 +1,45 @@
+{% extends 'account/profiles/dashboard/dashboard_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if object %}
+        Edit course "{{ object.title }}"
+    {% else %}
+        Create a new course
+    {% endif %}
+{% endblock title %}
+
+
+{% block dashboard %}
+    {% include 'pages/navbar.html' %}
+    <h1>
+        {% if object %}
+            Edit course "{{ object.title }}"
+        {% else %}
+            Create a new course
+        {% endif %}
+    </h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6 edit-course">
+                    <div class="module">
+                        <h2>Create Quiz</h2>
+                        <form action="." method="POST" enctype="multipart/form-data">
+                                {{ form|crispy }}
+                            <h3>Create Choices</h3>
+                                {% for form_choice in formset %}
+                                    {{ form_choice|crispy }}
+                                {% endfor %}
+                                {{ formset.management_form|crispy }}
+                                {% csrf_token %}
+                            <p><input type="submit" class="btn btn-primary" value="Save course"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- Start Section7 Contactame -->
+
+  <!-- End Section7 Contactame -->
+{% endblock dashboard %}

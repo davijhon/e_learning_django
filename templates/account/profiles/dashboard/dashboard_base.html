@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<input type="checkbox" id="menu">
+
+{% include 'pages/navbar.html' %}
+<!-- <nav id="nav-dashboard">
+    <label></label>
+    <ul>
+        <li><a href="#"></a></li>
+    </ul>
+
+    <label for="menu" class="menu-bar">
+        <i class="fas fa-bars"></i>
+    </label>
+
+</nav> -->
+
+<div class="side-menu">
+    <center>
+        <img src="{% static 'img/testimonials-1.jpg' %}" alt="">
+        <br><br>
+
+        <h2>{{ user.username }}</h2>
+    </center>
+    <br>
+    <div class="">
+        {% if perms.instructors %}
+            <a href="{% url 'courses:profile' %}"><i class="fas fa-user fa-2x"></i><span>My Profile</span></a>
+            <a href="{% url 'courses:manage_course_list' %}"><i class="fas fa-list fa-2x"></i><span>My Courses</span></a>
+        {% else %}
+            <a href="{% url 'students:student_profile' %}"><i class="fas fa-user fa-2x"></i><span>My Profile</span></a>
+            <a href="{% url 'students:student_course_list' %}"><i class="fas fa-list fa-2x"></i><span>My Courses</span></a>
+        {% endif %}
+        <a href="#"><i class="fas fa-cog fa-2x"></i><span>Settings</span></a>
+    </div>
+</div>
+
+
+    {% block dashboard %}
+    {% endblock dashboard %}
+
+
+
+{% endblock content %}

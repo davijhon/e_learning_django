@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'pages/header.html' %}
+
+<!-- Features Section 1 -->
+<section id="features">
+	<div class="container">
+		<div class="row text-center padding">
+			<div class="col-xs-12 col-sm-6 col-md-4 padding">
+			<i class="fas fa-book-reader fa-3x mx-3"></i>
+				<h3>Quality</h3>
+		<p>The automated process all your wbsite task.</p>
+
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 padding">
+		<i class="fa fa-child fa-3x" aria-hidden="true"></i>
+				<h3>For Everyone</h3>
+		<p>Built with the leates version of Django, teris asterum campen mellis eberatun taram</p>
+
+			</div>
+			<div class="col-sm-12 col-md-4 padding">
+		<i class="fa fa-search-plus fa-3x" aria-hidden="true"></i>
+				<h3>Searching</h3>
+		<p>Built with the leates version of css3, teris asterum campen mellis eberatun taram</p>
+
+			</div>
+		</div>
+		<hr class="my-4">
+	</div>
+</section>
+<!-- Features Section 1 -->
+
+<!-- Current Courses -->
+<section id="courses-carousel">
+<div class="container mt-5 nb-5">
+	<div class="text-center section-title">
+		<h2 class="section-title">Our features Courses</h2>
+	</div>
+	<div class="owl-carousel owl-theme">
+		{% for course in featured_courses %}
+			<div class="ml-2 mr-2">
+				<div class="card">
+					<a href="#"><img class="card-img-top" src="{% if course.image %}{{ course.image.url }}{% else %}{% static 'img/no_image' %}{% endif %}" alt=""></a>
+
+					<!--a href="#"><img class="card-img-top" src=" alt=""></a-->
+
+					<div class="card-body">
+					<h4 class="card-title">
+						<a href="{{ course.get_absolute_url }}">{{ course.title }}</a>
+					</h4>
+					<h5>$24.99</h5>
+					<p class="card-text">{{ course.overview|truncatewords:25 }}</p>
+					</div>
+					<div class="card-footer">
+					<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+</div>
+</section>
+
+<!-- End Currente Courses -->
+
+<!-- Description Section -->
+    <section id="about" class="about">
+		<div class="container">
+  
+		  <div class="row content">
+			<div class="col-lg-6">
+			  <h2>Eum ipsam laborum deleniti velitena</h2>
+			  <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+			</div>
+			<div class="col-lg-6 pt-4 pt-lg-0">
+			  <p>
+				Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+				culpa qui officia deserunt mollit anim id est laborum
+			  </p>
+			  <ul class="fa-ul">
+				<li><span class="fa-li"><i class="fa fa-check"></i></span> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
+				<li><span class="fa-li"><i class="fa fa-check"></i></span> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+				<li><span class="fa-li"><i class="fa fa-check"></i></span> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+			  </ul>
+			  <p class="font-italic">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+				magna aliqua.
+			  </p>
+			</div>
+		  </div>
+  
+		</div>
+	  </section>
+<!-- End Description Section -->
+
+
+<!-- Our Subjects Section -->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">Learn About</h2>
+                </div>
+                <div class="row">
+					{% for subject in subjects %}
+						<div class="col-lg-4 col-sm-6 mb-4">
+							<div class="portfolio-item">
+								<a class="portfolio-link" data-toggle="modal" href="{{ subject.get_absolute_url }}"
+									><div class="portfolio-hover">
+										<div class="portfolio-hover-content"></div>
+									</div>
+									<img class="subjects-img" src="{{ subject.image.url }}" alt=""/></a>
+								<div class="centered">
+									<a href="{{ subject.get_absolute_url }}"><h3>{{ subject.title }}</h3></a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+                </div>
+            </div>
+        </section>
+<!-- End Our Subjects Section -->
+
+
+<!-- Recent Publish Section -->
+<section id="publish-section">
+<div class="container">
+	<div class="text-center">
+		<h2 class="section-title">Recent Publish in Blog</h2>
+	</div>
+	<div class="row">
+		<!-- Blog Entries Column -->
+		{% for post in featured_posts %}
+			<div class="col-md-6">
+				<!-- Blog Post -->
+				<div class="card mb-4">
+					<img class="card-img-top" src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'img/no_image' %}{% endif %}" alt="Card image cap">
+					<div class="card-body">
+					<h2 class="card-title">{{ post.title }}</h2>
+					<p class="card-text">{{ post.description }}</p>
+					<a href="{% url 'blog:blog_post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
+					</div>
+					<div class="card-footer text-muted">
+					Posted on {{ post.publicated_date }} by
+					<a href="#">{{ post.author }}</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+</div>
+</section>
+<!-- End Recent Publish Section -->
+
+<!-- Testimonial Section -->
+<section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5">Testimonials</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-1.jpg' %}" alt="">
+            <h5>Margaret E.</h5>
+            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-2.jpg' %}" alt="">
+            <h5>Fred S.</h5>
+            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-3.jpg' %}" alt="">
+            <h5>Sarah W.</h5>
+            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--End Testimonial Section -->
+
+{% include 'pages/footer.html' %}
+
+{% endblock content %}

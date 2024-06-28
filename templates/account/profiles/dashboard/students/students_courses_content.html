@@ -1,0 +1,17 @@
+{% extends 'account/profiles/dashboard/students/student_in_course_content_base.html' %}
+{% load static %}
+
+
+{% block in_course_content %}
+<div class="data-dashboard">
+    <div class="container">
+        {{ content.item.render }}
+        <div class="row">
+            <div class="col-12 course-description">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae tempora quasi dolores facilis molestias. Libero quos nisi, harum beatae ad ea odit itaque architecto quis suscipit porro ex dolore quaerat.</p>
+                <button type="button" class="btn btn-primary">Prueba tus Conocimientos</button>
+            </div>
+        </div>
+	</div>
+</div>
+{% endblock in_course_content %}
